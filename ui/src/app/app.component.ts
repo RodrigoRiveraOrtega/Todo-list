@@ -17,9 +17,7 @@ export class AppComponent {
   }
 
   welcomeMessage() {
-     this._demoService.getMessages().subscribe(
-        data => { this.welcomeMsg = data},
-        err => console.error(err),
+     this._demoService.getMessages().subscribe(data => { this.welcomeMsg = data},err => console.error(err),
         () => console.log('done loading messages')
      );
   }
