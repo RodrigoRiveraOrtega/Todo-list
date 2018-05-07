@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {DemoService} from './services/demo.service';
+import {TaskService} from './task/task.service';
 import {Observable} from 'rxjs/Rx';
 
 import '../assets/css/styles.css';
+import { Task } from './task/task.model';
 
 @Component({
   selector: 'my-app',
@@ -10,19 +11,19 @@ import '../assets/css/styles.css';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public welcomeMsg: any;
+  public tasks: Task;
 
   ngOnInit() {
-    this.welcomeMessage();
+    this.getTasks();
   }
 
-  welcomeMessage() {
-     this._demoService.getMessages().subscribe(
-        data => { this.welcomeMsg = data},
+  getTasks() {
+     this._taskService.getTasks().subscribe(
+        data => { this.tasks = data},
         err => console.error(err),
-        () => console.log('done loading messages')
+        () => console.log('done loading tasks')
      );
   }
  
-  constructor(private _demoService: DemoService) { }
+  constructor(private _taskService: TaskService) { }
 }

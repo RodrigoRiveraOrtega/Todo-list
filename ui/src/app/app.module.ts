@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { DemoService } from './services/demo.service';
+import { TaskService } from './task/task.service';
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent
   ],
-  providers: [DemoService],
+  providers: [TaskService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
