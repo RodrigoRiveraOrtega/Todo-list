@@ -2,4 +2,13 @@
   <h1>Hello from Angular App with Webpack</h1>
   <h2>Message from the API with ASP.NET:</h2>
   <h3>{{welcomeMsg}}</h3>
+  <hr>
+
+  <h2>Tasks</h2>
+  <ul>
+    <li *ngFor="let task of tasks" (click)="onSelect(task)">
+      {{task.description}}
+    </li>
+  </ul>
+  <app-task-info [task]="selectedTask"></app-task-info>
 </main>
