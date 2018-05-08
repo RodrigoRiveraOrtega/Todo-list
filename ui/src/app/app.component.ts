@@ -11,7 +11,7 @@ import { Task } from './task/task.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public tasks: Task;
+  public tasks: Task[];
 
   ngOnInit() {
     this.getTasks();
@@ -19,7 +19,7 @@ export class AppComponent {
 
   getTasks() {
      this._taskService.getTasks().subscribe(
-        data => { this.tasks = data},
+        data => this.tasks = data,
         err => console.error(err),
         () => console.log('done loading tasks')
      );

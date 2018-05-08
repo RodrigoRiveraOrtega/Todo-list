@@ -18,7 +18,7 @@ export class TaskService {
 
     private tasks : Task[];
 
-    getTasks() : Observable<Task> {
+    getTasks() : Observable<Task[]> {
         this.tasks = [
             {
                 name: "Task 1",
@@ -36,8 +36,7 @@ export class TaskService {
                 status: "Done"
             }
         ];
-        return Observable.from(this.tasks);
-        //return this.tasks;
+        return Observable.of(this.tasks);
     }
 
     addTask(task : Task){
